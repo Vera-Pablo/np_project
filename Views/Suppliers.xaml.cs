@@ -17,9 +17,9 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para Surppliers.xaml
     /// </summary>
-    public partial class Surppliers : Window
+    public partial class Suppliers : Window
     {
-        public Surppliers()
+        public Suppliers()
         {
             InitializeComponent();
         }

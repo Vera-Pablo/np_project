@@ -17,9 +17,9 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Main : Window
     {
-        public Window1()
+        public Main()
         {
             InitializeComponent();
         }
