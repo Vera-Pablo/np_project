@@ -19,9 +19,9 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para login.xaml
     /// </summary>
-    public partial class login : Window
+    public partial class Login : Window
     {
-        public login()
+        public Login()
         {
             InitializeComponent();
             this.DataContext = new LoginViewModels();
