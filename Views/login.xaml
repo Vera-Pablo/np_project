@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:np_project.Views"
         mc:Ignorable="d"
-        Title="login" Height="450" Width="800">
-    <Grid>
+        Height="auto" Width="auto"
+        Background="#FFFF">
+    <Grid VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Image Grid.Row="0"
-               Source="/Resources/NP.png"
+               Source="/Resources/Images/NP.png"
                HorizontalAlignment="Center"
                Width="114"/>
 
@@ -26,13 +27,13 @@
 
         <Border
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
                 CornerRadius="10"
                 Padding="10"
-                Background="#E8F0F7" Height="233" Width="408" Grid.Row="1" Margin="0,19,0,0">
-            <StackPanel Width="350">
+                Background="#E8F0F7" Height="300" Width="408" Grid.Row="1">
+            <StackPanel Width="350" VerticalAlignment="Center">
                 <TextBlock Text="DNI" Margin="0,0,0,5"/>
-                <TextBox Text="42995260"
+                <TextBox Text="{Binding Dni, UpdateSourceTrigger=PropertyChanged}"
                          Padding="8"
                          BorderThickness="0"
                          Background="#F5F5F5"/>
@@ -40,7 +41,8 @@
                 <TextBlock Text="Contraseña" Margin="0,5,0,5"/>
                 <PasswordBox Padding="8"
                              BorderThickness="0"
-                             Background="#F5F5F5"/>
+                             Background="#F5F5F5"
+                             x:Name="PasswordBox"/>
                 <TextBlock Text="Utilice al menos 8 caracteres con 1 número y un carácter especial."
                            FontSize="10"
                            Foreground="Gray"
@@ -57,26 +59,18 @@
                         Margin="0,20,0,0"
                         BorderThickness="0"
                         Height="35"
-                        Width="Auto">
-                    <!-- template para aplicar diseño al button-->
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}"
-                                    CornerRadius="20"
-                                    SnapsToDevicePixels="True">
-                                <ContentPresenter HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"
-                                                  RecognizesAccessKey="True"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                        Width="Auto"
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="{Binding ElementName=PasswordBox}"
+                        IsEnabled="true"/>
+                <!-- template para aplicar diseño al button-->
 
-                <TextBlock HorizontalAlignment="Center" Margin="0,8,0,0">
-                    <Hyperlink>
-                        <TextBlock Text="¿Has olvidado tu contraseña?"/>
-                    </Hyperlink>
-                </TextBlock>
+
+                <TextBlock Text="{Binding ErrorMessage}"
+                           FontSize="10"
+                           Foreground="Gray"
+                           TextWrapping="Wrap"
+                           Margin="0,5,0,0"/>
             </StackPanel>
         </Border>
     </Grid>

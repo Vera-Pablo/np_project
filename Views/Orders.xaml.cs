@@ -17,7 +17,7 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para Ventas.xaml
     /// </summary>
-    public partial class Orders : Window
+    public partial class Orders : UserControl
     {
         public Orders()
         {

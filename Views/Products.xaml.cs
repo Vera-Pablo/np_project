@@ -17,7 +17,7 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para Products.xaml
     /// </summary>
-    public partial class Products : Window
+    public partial class Products : UserControl
     {
         public Products()
         {

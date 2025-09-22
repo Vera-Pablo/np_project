@@ -10,18 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace np_project.Views
+namespace np_project.Views.Shared
 {
     /// <summary>
-    /// Lógica de interacción para Window1.xaml
+    /// Lógica de interacción para Page1.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class Sidebar : UserControl
     {
-        public Main()
+        public Sidebar()
         {
             InitializeComponent();
+            DataContext = Application.Current.MainWindow.DataContext;
         }
     }
 }

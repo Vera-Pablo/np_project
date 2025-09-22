@@ -17,7 +17,7 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para Surppliers.xaml
     /// </summary>
-    public partial class Suppliers : Window
+    public partial class Suppliers : UserControl
     {
         public Suppliers()
         {

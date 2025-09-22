@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="np_project.Views.Shared.Sidebar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Height="Auto" Width="170">
+
+    <Border Background="White" Margin="10,8,0,15" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+        </Border.Effect>
+
+        <StackPanel Margin="6">
+            <Button Style="{StaticResource MenuButtonStyle}" Command="{Binding NavigateToHomeCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/DashB.png" Width="15" Height="15" Margin="0,0,10,0"/>
+                    <TextBlock Text="Dashboard" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButtonStyle}" Command="{Binding NavigateToProductsCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Products.png" Width="15" Height="15" Margin="0,0,10,0"/>
+                    <TextBlock Text="Productos" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButtonStyle}" Command="{Binding NavigateToOrdersCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Ventas.png" Width="15" Height="15" Margin="0,0,10,0"/>
+                    <TextBlock Text="Ventas" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButtonStyle}" Command="{Binding NavigateToSuppliersCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Proveedores.png" Width="15" Height="15" Margin="0,0,10,0"/>
+                    <TextBlock Text="Proveedores" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButtonStyle}" Command="{Binding NavigateToReportsCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Reportes.png" Width="15" Height="15" Margin="0,0,10,0"/>
+                    <TextBlock Text="Reportes" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource MenuButtonStyle}" Command="{Binding NavigateToUsersCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/Icons/Usuario.png" Width="15" Height="15" Margin="0,0,10,0"/>
+                    <TextBlock Text="Usuarios" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Border>
+</UserControl>
+

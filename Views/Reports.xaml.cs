@@ -17,7 +17,7 @@ namespace np_project.Views
     /// <summary>
     /// Lógica de interacción para Reports.xaml
     /// </summary>
-    public partial class Reports : Window
+    public partial class Reports : UserControl
     {
         public Reports()
         {

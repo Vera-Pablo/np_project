@@ -24,7 +24,7 @@ namespace np_project.Views
         public Login()
         {
             InitializeComponent();
-            this.DataContext = new LoginViewModels();
+            DataContext = new LoginViewModel();
         }
     }
 }
