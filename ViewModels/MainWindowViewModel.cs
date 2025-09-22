@@ -24,7 +24,7 @@ namespace np_project.ViewModels
             }
         }
 
-        public ICommand NavigateToHomeCommand { get; 
+        public ICommand NavigateToHomeCommand { get; }
 
         public MainWindowViewModel()
         {
