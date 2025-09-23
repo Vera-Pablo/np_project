@@ -16,42 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Icons\DashB.png" />
-    <None Remove="Resources\Icons\Products.png" />
-    <None Remove="Resources\Icons\Proveedores.png" />
-    <None Remove="Resources\Icons\Reportes.png" />
-    <None Remove="Resources\Icons\Usuario.png" />
-    <None Remove="Resources\Icons\Ventas.png" />
-    <None Remove="Resources\Images\DashBoard.png" />
-    <None Remove="Resources\Images\NP.png" />
-    <None Remove="Resources\Images\Producto.png" />
-    <None Remove="Resources\Images\Reports.png" />
-    <None Remove="Resources\Images\Sales.png" />
-    <None Remove="Resources\Images\Suppliers.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Icons\DashB.png" />
-    <Resource Include="Resources\Icons\Products.png" />
-    <Resource Include="Resources\Icons\Proveedores.png" />
-    <Resource Include="Resources\Icons\Reportes.png" />
-    <Resource Include="Resources\Icons\Usuario.png" />
-    <Resource Include="Resources\Icons\Ventas.png" />
-    <Resource Include="Resources\Images\DashBoard.png" />
-    <Resource Include="Resources\Images\NP.png" />
-    <Resource Include="Resources\Images\Producto.png" />
-    <Resource Include="Resources\Images\Reports.png" />
-    <Resource Include="Resources\Images\Sales.png" />
-    <Resource Include="Resources\Images\Suppliers.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,7 +20,6 @@ namespace np_project
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
         }
     }
 }
