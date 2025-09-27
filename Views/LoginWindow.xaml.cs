@@ -21,18 +21,6 @@ namespace np_project.Views
         public LoginWindow()
         {
             InitializeComponent();
-            var vm = new LoginViewModel(OnLoginSuccess);
-            DataContext = vm;
-        }
-
-        private void OnLoginSuccess()
-        {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                var main = new MainWindow();
-                main.Show();
-                this.Close();
-            });
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
