@@ -50,18 +50,26 @@ namespace np_project.Services
         }
 
         public void NavigateTo<TViewModel>() where TViewModel : ViewModelBase
-        {
-            var vm = _serviceProvider.GetRequiredService<TViewModel>();
-
-            var mainWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.DataContext is MainWindowViewModel);
-
-            if (mainWindow?.DataContext is MainWindowViewModel mainVM)
+        { 
+            try
             {
-                mainVM.CurrentViewModel = vm as ViewModelBase;
-            } else
+                var vm = _serviceProvider.GetRequiredService<TViewModel>();
+
+                var mainWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.DataContext is MainWindowViewModel);
+
+                if (mainWindow?.DataContext is MainWindowViewModel mainVM)
+                {
+                    mainVM.CurrentViewModel = vm as ViewModelBase;
+                }
+                else
+                {
+                    throw new InvalidOperationException("No se encontró un MainWindow abierto con MainWindowViewModel");
+                }
+            } catch (Exception ex)
             {
-                throw new InvalidOperationException("No se encontró un MainWindow abierto con MainWindowViewModel");
+                MessageBox.Show(ex.Message);
             }
+
         }
     }
 }

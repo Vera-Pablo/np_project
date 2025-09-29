@@ -28,6 +28,7 @@ namespace np_project
                 options.UseSqlServer(@"Server=localhost;Database=db_np;Trusted_Connection=true;TrustServerCertificate=True;"));
 
             // Servicios
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<AuthService>();
 
             services.AddSingleton<INavigationService, NavigationService>();

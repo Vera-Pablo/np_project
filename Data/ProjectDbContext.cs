@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace np_project.Data
 {
-    class ProjectDbContext : DbContext
+    public class ProjectDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
 

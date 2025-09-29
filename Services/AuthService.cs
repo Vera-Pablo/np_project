@@ -11,14 +11,14 @@ namespace np_project.Services
 {
     class AuthService
     {
-        private readonly ProjectDbContext _context;
+        private readonly ProjectDbContext _db;
 
-        public AuthService(ProjectDbContext context) => _context = context;
+        public AuthService(ProjectDbContext db) => _db = db;
 
         public async Task<User> LoginAsync(long dni, string password)
         {
             Console.WriteLine("Entramos al Login del Servicio");
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Dni == dni);
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Dni == dni);
 
             if (user == null) throw new Exception("Usuario no encontrado");
             if (user.Password != password) throw new Exception("Contraseña Incorrecta");
@@ -29,7 +29,7 @@ namespace np_project.Services
 
         public async Task<User> RegisterAsync(long dni, string password, string name)
         {
-            if (await _context.Users.AnyAsync(u => u.Dni == dni)) throw new Exception("El usuario ya existe");
+            if (await _db.Users.AnyAsync(u => u.Dni == dni)) throw new Exception("El usuario ya existe");
 
             var user = new User
             {
@@ -38,8 +38,8 @@ namespace np_project.Services
                 Name = name
             };
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            _db.Users.Add(user);
+            await _db.SaveChangesAsync();
 
             return user;
         }

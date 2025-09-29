@@ -1,0 +1,41 @@
+﻿<Window x:Class="np_project.Views.UserFormWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Usuario" Height="300" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="DNI:" Grid.Row="0" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Dni, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="80,0,0,5"/>
+
+        <TextBlock Text="Nombre:" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Margin="80,0,0,5"/>
+
+        <TextBlock Text="Password:" Grid.Row="2" VerticalAlignment="Center"/>
+        <PasswordBox Grid.Row="2" Margin="80,0,0,5"
+                     x:Name="PasswordBox"/>
+
+        <TextBlock Text="Rol:" Grid.Row="3" VerticalAlignment="Center"/>
+        <ComboBox SelectedValue="{Binding Role}" SelectedValuePath="Content" Grid.Row="3" Margin="80,0,0,5">
+            <ComboBoxItem Content="Administrador"/>
+            <ComboBoxItem Content="Encargado"/>
+            <ComboBoxItem Content="Vendedor"/>
+        </ComboBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Aceptar" Width="80" Margin="0,0,10,0" IsDefault="True"
+                    Click="Submit_Click"/>
+            <Button Content="Cancelar" Width="80" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
