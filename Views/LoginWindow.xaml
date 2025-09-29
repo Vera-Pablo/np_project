@@ -7,8 +7,9 @@
       mc:Ignorable="d"
       Title="Login" Height="auto" Width="auto" WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="20">
-        <StackPanel>
+    <Grid Margin="10" VerticalAlignment="Center">
+        <StackPanel Width="300" HorizontalAlignment="Center">
+            <TextBlock Text="Bienvenido! Inicie Sesión" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
             <TextBlock Text="DNI"/>
             <TextBox Text="{Binding Dni, UpdateSourceTrigger=PropertyChanged}" Margin="0,4,0,10"/>
 

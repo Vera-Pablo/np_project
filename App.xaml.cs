@@ -32,6 +32,7 @@ namespace np_project
             services.AddScoped<AuthService>();
 
             services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<SessionService>();
 
             // ViewModels ventana
             services.AddTransient<LoginViewModel>();
@@ -41,7 +42,9 @@ namespace np_project
             services.AddTransient<HomeViewModel>();
             services.AddTransient<UsersViewModel>();
             services.AddTransient<OrdersViewModel>();
-
+            services.AddTransient<ProductsViewModel>();
+            services.AddTransient<SuppliersViewModel>();
+            services.AddTransient<SalesViewModel>();
 
             Services = services.BuildServiceProvider();
 

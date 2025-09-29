@@ -39,10 +39,12 @@ namespace np_project.ViewModels
         public ICommand LoginCommand { get; }
 
         private readonly AuthService _authService;
+        private readonly SessionService _sessionService;
         private readonly INavigationService _navigationService;
 
-        public LoginViewModel(AuthService authService, INavigationService navigationService)
+        public LoginViewModel(AuthService authService, INavigationService navigationService, SessionService sessionService)
         {
+            _sessionService = sessionService;
             _authService = authService;
             _navigationService = navigationService;
             LoginCommand = new AsyncRelayCommand(async _ => await DoLoginAsync());
@@ -53,6 +55,7 @@ namespace np_project.ViewModels
             try
             {
                 var user = await _authService.LoginAsync(long.Parse(Dni), Password);
+                _sessionService.CurrentUser = user;
                 _navigationService.OpenWindow<MainWindowViewModel>();
                 _navigationService.CloseWindow<LoginViewModel>();
             } catch (Exception ex)

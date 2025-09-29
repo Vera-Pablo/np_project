@@ -4,16 +4,18 @@
 
     <DockPanel Margin="10">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 0 0 10">
-            <Button Content="Nuevo" Command="{Binding OpenCreateUserCommand}" Margin="5"/>
-            <Button Content="Editar" Command="{Binding OpenEditUserCommand}" Margin="5"/>
-            <Button Content="Eliminar" Command="{Binding DeleteUserCommand}" Margin="5"/>
-            <Button Content="Activar" Command="{Binding ActiveUserCommand}" Margin="5"/>
+            <Button Content="Nuevo" Style="{StaticResource GreenButtonStyle}" Command="{Binding OpenCreateUserCommand}" Margin="5"/>
+            <Button Content="Editar" Style="{StaticResource GreenButtonStyle}" Command="{Binding OpenEditUserCommand}" Margin="5"/>
+            <Button Content="Eliminar" Style="{StaticResource RedButtonStyle}" Command="{Binding DeleteUserCommand}" Margin="5"/>
+            <Button Content="Activar" Style="{StaticResource GreenButtonStyle}" Command="{Binding ActiveUserCommand}" Margin="5"/>
         </StackPanel>
         <DataGrid ItemsSource="{Binding Users}" 
                   SelectedItem="{Binding SelectedUser}" 
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  GridLinesVisibility="None"
+                  SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="DNI" Binding="{Binding Dni}"/>

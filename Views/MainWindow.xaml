@@ -6,10 +6,13 @@
         Title="Main" Height="auto" Width="auto" WindowStartupLocation="CenterScreen">
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Left" Width="200" Background="#EEE">
+        <StackPanel DockPanel.Dock="Left" Width="220" Height="auto" Margin="4" Background="#EEE" VerticalAlignment="Stretch" HorizontalAlignment="Center">
             <Button Content="Inicio" Command="{Binding ShowHomeCommand}" Margin="0,0,0,8"/>
+            <Button Content="Productos" Command="{Binding ShowProductsCommand}" Margin="0,0,0,8"/>
+            <Button Content="Proveedores" Command="{Binding ShowSuppliersCommand}" Margin="0,0,0,8"/>
+            <Button Content="Ventas" Command="{Binding ShowSalesCommand}" Margin="0,0,0,8"/>
+            
             <Button Content="Usuarios" Command="{Binding ShowUsersCommand}" Margin="0,0,0,8"/>
-            <Button Content="Pedidos" Command="{Binding ShowOrdersCommand}" Margin="0,0,0,8"/>
         </StackPanel>
 
         <!-- Contenedor dinámico -->

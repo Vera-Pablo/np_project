@@ -22,19 +22,39 @@ namespace np_project.ViewModels
         public ICommand ShowHomeCommand { get; }
         public ICommand ShowUsersCommand { get; }
         public ICommand ShowOrdersCommand { get; }
+        public ICommand ShowProductsCommand { get; }
+        public ICommand ShowSuppliersCommand { get; }
+        public ICommand ShowSalesCommand { get; }
 
         private readonly INavigationService _navigation;
+        private readonly SessionService _session;
 
-        public MainWindowViewModel(INavigationService navigation)
+        public bool IsAdmin => _session.CurrentUser.Role == "Administrador";
+        public bool IsManager => _session.CurrentUser.Role == "Encargado";
+        public MainWindowViewModel(INavigationService navigation, SessionService session)
         {
+            _session = session;
             _navigation = navigation;
 
             CurrentViewModel = new HomeViewModel();
 
             ShowHomeCommand = new RelayCommand(_ => _navigation.NavigateTo<HomeViewModel>());
-            ShowUsersCommand = new RelayCommand(_ => _navigation.NavigateTo<UsersViewModel>());
             ShowOrdersCommand = new RelayCommand(_ => _navigation.NavigateTo<OrdersViewModel>());
+            ShowSalesCommand = new RelayCommand(_ => navigation.NavigateTo<SalesViewModel>());
 
+            if (IsManager)
+            {
+                ShowSuppliersCommand = new RelayCommand(_ => navigation.NavigateTo<SuppliersViewModel>());
+                ShowProductsCommand = new RelayCommand(_ => navigation.NavigateTo<ProductsViewModel>());
+            }
+
+            if(IsAdmin)
+            {
+                ShowUsersCommand = new RelayCommand(_ => _navigation.NavigateTo<UsersViewModel>());
+                ShowSuppliersCommand = new RelayCommand(_ => navigation.NavigateTo<SuppliersViewModel>());
+                ShowProductsCommand = new RelayCommand(_ => navigation.NavigateTo<ProductsViewModel>());
+                ShowSalesCommand = new RelayCommand(_ => navigation.NavigateTo<SalesViewModel>());
+            }
         }
     }
 }

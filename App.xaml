@@ -8,6 +8,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles.xaml"/>
+                <ResourceDictionary Source="/Resources/GlobalStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type vm:HomeViewModel}">
                 <views:HomeView />
@@ -17,6 +19,12 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:OrdersViewModel}">
                 <views:OrdersView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ProductsViewModel}">
+                <views:ProductsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SuppliersViewModel}">
+                <views:SuppliersView />
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
