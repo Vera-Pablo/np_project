@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using np_project.Views;
 using System.Windows.Input;
+using np_project.Services;
 
 namespace np_project.ViewModels
 {
@@ -18,18 +19,22 @@ namespace np_project.ViewModels
             set => SetProperty(ref _currentViewModel, value);
         }
 
-        public ICommand NavigateToHomeCommand { get; }
-        public ICommand NavigateToUsersCommand { get; }
-        public ICommand NavigateToOrdersCommand { get; }
+        public ICommand ShowHomeCommand { get; }
+        public ICommand ShowUsersCommand { get; }
+        public ICommand ShowOrdersCommand { get; }
 
-        public MainWindowViewModel()
+        private readonly INavigationService _navigation;
+
+        public MainWindowViewModel(INavigationService navigation)
         {
-            NavigateToHomeCommand = new RelayCommand(_ => CurrentViewModel = new HomeViewModel());
-            NavigateToUsersCommand = new RelayCommand(_ => CurrentViewModel = new UsersViewModel());
-            NavigateToOrdersCommand = new RelayCommand(_ => CurrentViewModel = new OrdersViewModel());
+            _navigation = navigation;
 
-            // Vista inicial
             CurrentViewModel = new HomeViewModel();
+
+            ShowHomeCommand = new RelayCommand(_ => _navigation.NavigateTo<HomeViewModel>());
+            ShowUsersCommand = new RelayCommand(_ => _navigation.NavigateTo<UsersViewModel>());
+            ShowOrdersCommand = new RelayCommand(_ => _navigation.NavigateTo<OrdersViewModel>());
+
         }
     }
 }

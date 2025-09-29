@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace np_project.ViewModels.Base
 {
-    class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

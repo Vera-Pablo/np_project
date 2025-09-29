@@ -32,9 +32,15 @@ namespace np_project
 
             services.AddSingleton<INavigationService, NavigationService>();
 
-            // VieModels
+            // ViewModels ventana
             services.AddTransient<LoginViewModel>();
             services.AddTransient<MainWindowViewModel>();
+
+            // ViewModels internos
+            services.AddTransient<HomeViewModel>();
+            services.AddTransient<UsersViewModel>();
+            services.AddTransient<OrdersViewModel>();
+
 
             Services = services.BuildServiceProvider();
 

@@ -50,12 +50,10 @@ namespace np_project.ViewModels
 
         private async Task DoLoginAsync()
         {
-            Console.WriteLine("Entramos al DoLogin del MV");
             try
             {
-                Console.WriteLine("Entramos al try de Login en el VM");
                 var user = await _authService.LoginAsync(long.Parse(Dni), Password);
-                _navigationService.NavigateTo<MainWindowViewModel>();
+                _navigationService.OpenWindow<MainWindowViewModel>();
                 _navigationService.CloseWindow<LoginViewModel>();
             } catch (Exception ex)
             {

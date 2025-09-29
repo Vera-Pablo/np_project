@@ -5,31 +5,16 @@
         xmlns:views="clr-namespace:np_project.Views"
         Title="Main" Height="auto" Width="auto" WindowStartupLocation="CenterScreen">
 
-    <Window.DataContext>
-        <vm:MainWindowViewModel />
-    </Window.DataContext>
-
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="200" Background="#EEE">
-            <Button Content="Inicio" Command="{Binding NavigateToHomeCommand}" Margin="0,0,0,8"/>
-            <Button Content="Usuarios" Command="{Binding NavigateToUsersCommand}" Margin="0,0,0,8"/>
-            <Button Content="Pedidos" Command="{Binding NavigateToOrdersCommand}" Margin="0,0,0,8"/>
+            <Button Content="Inicio" Command="{Binding ShowHomeCommand}" Margin="0,0,0,8"/>
+            <Button Content="Usuarios" Command="{Binding ShowUsersCommand}" Margin="0,0,0,8"/>
+            <Button Content="Pedidos" Command="{Binding ShowOrdersCommand}" Margin="0,0,0,8"/>
         </StackPanel>
 
         <!-- Contenedor dinámico -->
-        <ContentControl Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type vm:HomeViewModel}">
-                    <views:HomeView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type vm:UsersViewModel}">
-                    <views:UsersView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type vm:OrdersViewModel}">
-                    <views:OrdersView />
-                </DataTemplate>
-            </ContentControl.Resources>
-        </ContentControl>
+        <ContentControl Content="{Binding CurrentViewModel}"/> 
+
     </DockPanel>
 </Window>
         

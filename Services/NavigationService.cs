@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using np_project.ViewModels;
+using np_project.ViewModels.Base;
 using System;
 using System.Linq;
 using System.Windows;
@@ -14,7 +16,7 @@ namespace np_project.Services
             _serviceProvider = serviceProvider;
         }
 
-        public void NavigateTo<TViewModel>() where TViewModel : class
+        public void OpenWindow<TViewModel>() where TViewModel : class
         {
             var viewModel = _serviceProvider.GetRequiredService<TViewModel>();
 
@@ -44,6 +46,21 @@ namespace np_project.Services
                     window.Close();
                     break;
                 }
+            }
+        }
+
+        public void NavigateTo<TViewModel>() where TViewModel : ViewModelBase
+        {
+            var vm = _serviceProvider.GetRequiredService<TViewModel>();
+
+            var mainWindow = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.DataContext is MainWindowViewModel);
+
+            if (mainWindow?.DataContext is MainWindowViewModel mainVM)
+            {
+                mainVM.CurrentViewModel = vm as ViewModelBase;
+            } else
+            {
+                throw new InvalidOperationException("No se encontró un MainWindow abierto con MainWindowViewModel");
             }
         }
     }

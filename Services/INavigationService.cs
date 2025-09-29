@@ -1,4 +1,5 @@
-﻿using System;
+﻿using np_project.ViewModels.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ namespace np_project.Services
 {
     public interface INavigationService
     {
-        void NavigateTo<TViewModel>() where TViewModel : class;
+        void OpenWindow<TViewModel>() where TViewModel : class;
         void CloseWindow<TViewModel>() where TViewModel: class;
+
+
+        void NavigateTo<TVieModel>() where TVieModel : ViewModelBase;
     }
 }
